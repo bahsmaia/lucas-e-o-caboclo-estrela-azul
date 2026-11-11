@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="estrela-azul-version" content="caboclo-camera-natural-v33">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/png" sizes="48x48" href="./favicon.png?v=estrela-azul-caboclo-camera-natural-v33-20261110">
+<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico?v=estrela-azul-caboclo-camera-natural-v33-20261110">
+<link rel="apple-touch-icon" href="./favicon.png?v=estrela-azul-caboclo-camera-natural-v33-20261110">
+<meta name="theme-color" content="#e3f1ec">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="description" content="Lucas e o Caboclo Estrela Azul — experiência interativa.">
+<title>Lucas e o Caboclo Estrela Azul — Processo criativo</title>
+<link rel="preload" href="./public/assets/intro-widescreen.mp4" as="video" type="video/mp4" media="(min-width: 751px)">
+<link rel="stylesheet" href="./style-estrela-v33.css?v=estrela-azul-caboclo-camera-natural-v33-20261110">
+<style>
+html,body{margin:0;min-height:100%;background:#dcefeb}
+#root{height:100dvh;min-height:100svh}
+#site-loading{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(145deg,#e9f7f2,#b6dce3);font:16px 'Trebuchet MS',sans-serif;color:#235b61;text-align:center;padding:20px;z-index:0}
+#site-error{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:99999;display:none;width:min(90vw,500px);background:#f3fbf8;padding:28px;border-radius:12px;box-shadow:0 16px 40px #1a515140;color:#183f43;font:15px/1.6 'Trebuchet MS',sans-serif;text-align:center}
+#site-error strong{display:block;font-size:22px;margin-bottom:10px}
+#site-error a{color:#086b9a}
+</style>
+</head>
+<body>
+<div id="root"><div id="site-loading">Preparando sua travessia…</div></div>
+<div id="site-error" role="alert"><strong>Não foi possível carregar a experiência.</strong><span id="site-error-detail">Atualize a página para tentar novamente.</span><p><a href="https://barbarasmaia.com.br/">Voltar para Home</a></p></div>
+<script>
+(function(){
+let shown=false;
+function show(message){if(shown)return;shown=true;const box=document.getElementById('site-error');const detail=document.getElementById('site-error-detail');if(detail)detail.textContent=message;if(box)box.style.display='block';}
+window.addEventListener('error',e=>{if(e.target===window){console.error('ERRO DO PROJETO',e.message);show('O navegador não conseguiu iniciar o passeio: '+(e.message||'erro de execução'))}},true);
+window.addEventListener('unhandledrejection',e=>{console.error('REJEIÇÃO NO PROJETO',e.reason);show('Erro durante a inicialização do passeio.')});
+window.__showLucasError=show;
+window.setTimeout(()=>{const root=document.getElementById('root');if(root && !root.querySelector('.experience'))show('Os arquivos do passeio não carregaram. Verifique o arquivo app-estrela-v33.js e atualize a página com Ctrl + F5.')},7000)
+})();
+</script>
+<script defer src="./soundtrack.js?v=estrela-azul-caboclo-camera-natural-v33-20261110"></script>
+<script src="./app-estrela-v33.js?v=estrela-azul-caboclo-camera-natural-v33-20261110" defer onerror="window.__showLucasError&&window.__showLucasError('O servidor não encontrou app-estrela-v33.js. Confira se ele está ao lado de index.html.')"></script>
+</body></html>
